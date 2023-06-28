@@ -1,7 +1,6 @@
-$font-stack:Arial, Helvetica, sans-serif;
-$light-color: #f4f4f4;
-$primary-colr: #0e6cff;
-$secondary-colr: #ff8700;
+@import 'config';
+@import 'utilities';
+@import 'buttons';
 
 *{
     padding: 0;
@@ -19,24 +18,55 @@ img{
     width: 100%;
 }
 
+a{
+    text-decoration: none;
+}
+
+
 .showcase{
-    background-color: $primary-colr;
-    color: #fff;
-    height: 600px;
+    @include set-background($primary-color);// include mixin
     
+    height: 600px;
+
     nav{
         display: flex;
         align-items: center;
         justify-content: space-between;
+        
+        ul{
+            display: flex;
+            list-style-type: none;
+        }
+
+        li{
+            padding: 15px;
+        }
+
+        a{
+            // color: set-text-color($primary-color);
+            color:black
+        }
     }
 
+    &-content{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+
+        img{
+            width: 50% ;
+        }
+
+        h1{
+            font-size: 50px;
+            line-height: 1.2;
+        }
+
+        
+
+    }
 }
 
-.container{
-    max-width: 1100px;
-    padding: 0 30px;
-    margin:  0 auto;
-    overflow: auto;
-
-    
-}
+@import 'mobile'
